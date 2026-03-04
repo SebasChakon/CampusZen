@@ -1,0 +1,12 @@
+# Carpetas de compilación
+/build/
+/dist/
+
+# Archivos compilados
+*.class
+
+# Configuración privada NetBeans
+/nbproject/private/
+
+# Logs
+*.log
