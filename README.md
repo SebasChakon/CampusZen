@@ -1,166 +1,72 @@
-📚 CampusZen
+# CampusZen
 
-Organizador de Tareas Estudiantiles
+A student productivity tool designed to help manage academic life in one place. CampusZen allows students to organize their tasks, track upcoming exams, and manage their schedules — all with calendar integration and smart notifications to keep them on top of their responsibilities.
 
-CampusZen es una aplicación web desarrollada con JSP y MySQL que permite a los estudiantes gestionar sus tareas, exámenes y horarios académicos en un solo lugar.
+> 🔧 **Status:** Currently under active development.
 
-El objetivo del proyecto es ofrecer una herramienta simple, organizada y eficiente para mejorar la planificación y productividad académica.
+---
 
-🚀 Características
+## Features
 
-✅ Registro e inicio de sesión de usuarios
+- **Task Management** — create, organize, and track pending assignments and to-dos.
+- **Exam Tracking** — keep a clear record of upcoming exams and deadlines.
+- **Schedule Management** — manage your weekly timetable in a structured and intuitive way.
+- **Calendar Integration** — visualize all your academic events in a unified calendar view.
+- **Notifications** — get timely reminders so nothing slips through the cracks.
 
-📝 Gestión de tareas (crear, editar, eliminar, marcar como completadas)
+---
 
-📅 Gestión de exámenes con fechas límite
+## Tech Stack
 
-🗓 Organización de horarios académicos
+| Layer         | Technology                               |
+|---------------|------------------------------------------|
+| Frontend      | JSP, HTML, CSS, Bootstrap                |
+| Backend       | Java Servlets, JavaScript                |
+| Database      | MySQL                                    |
+| DB Connector  | MySQL JDBC Driver                        |
+| Server        | Apache Tomcat                            |
 
-🔔 Sistema básico de notificaciones por fechas próximas
+---
 
-📊 Visualización organizada por calendario o lista
+## Installation & Setup
 
-🛠 Tecnologías Utilizadas
+### Prerequisites
 
-Frontend: JSP, HTML, CSS
+- [Java JDK](https://www.oracle.com/java/technologies/downloads/)
+- [Apache Tomcat](https://tomcat.apache.org/)
+- [MySQL](https://www.mysql.com/)
+- MySQL JDBC Driver
 
-Backend: Java (Servlets + JSP)
+### Steps
 
-Base de Datos: MySQL
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/campuszen.git
+   ```
 
-Servidor: Apache Tomcat
+2. **Set up the database:**
+   - Open MySQL and run the `.sql` script included in the project to create the database and its tables.
 
-Conector JDBC: MySQL Connector/J
+3. **Configure the JDBC connection:**
+   - Follow the driver's instructions to set up the connection to your MySQL instance (host, port, username, and password).
 
-🗄 Base de Datos
-1️⃣ Crear la base de datos
-CREATE DATABASE CampusZen;
-USE CampusZen;
-2️⃣ Configuración de conexión
+4. **Deploy to Tomcat:**
+   - Copy the project into Tomcat's `webapps` directory, or import it into your IDE (Eclipse, IntelliJ, etc.) and run it on the server.
 
-Ejemplo de conexión en Java:
+5. **You're all set!** Open your browser and navigate to `http://localhost:8080/campuszen` (or whichever port you have configured).
 
-private String url = "jdbc:mysql://localhost:3306/CampusZen?serverTimezone=UTC&useSSL=false";
-private String user = "root";
-private String password = "your_password";
+---
 
-Asegúrate de tener instalado el driver MySQL Connector/J.
+## Roadmap
 
-▶️ Cómo Ejecutar el Proyecto
-Requisitos
+- [ ] Core task and exam management
+- [ ] Calendar integration
+- [ ] Push notifications
+- [ ] Mobile-responsive UI improvements
+- [ ] User authentication and session management
 
-Java JDK 8 o superior
+---
 
-MySQL Server
+## License
 
-Apache Tomcat
-
-IDE (NetBeans, Eclipse o IntelliJ recomendado)
-
-Pasos
-
-Clonar el repositorio:
-
-git clone https://github.com/your-username/CampusZen.git
-
-Importar el proyecto en tu IDE como proyecto web dinámico.
-
-Configurar la base de datos en MySQL.
-
-Ajustar las credenciales de conexión en el archivo de configuración.
-
-Ejecutar el proyecto en Apache Tomcat.
-
-Abrir en el navegador:
-
-http://localhost:8080/CampusZen
-📖 Cómo Usar CampusZen
-🔐 1. Registro e Inicio de Sesión
-
-Crear una cuenta con correo y contraseña.
-
-Iniciar sesión para acceder al panel principal.
-
-📝 2. Crear una Tarea
-
-Ir a la sección “Tareas”.
-
-Hacer clic en “Nueva Tarea”.
-
-Agregar:
-
-Título
-
-Descripción
-
-Fecha límite
-
-Guardar.
-
-📅 3. Agregar un Examen
-
-Ir a la sección “Exámenes”.
-
-Registrar:
-
-Materia
-
-Fecha
-
-Aula (opcional)
-
-🗓 4. Gestionar Horarios
-
-Añadir materias con:
-
-Día de la semana
-
-Hora de inicio y fin
-
-🔔 5. Notificaciones
-
-El sistema muestra alertas cuando:
-
-Una tarea está próxima a vencer.
-
-Un examen está cerca.
-
-📂 Estructura del Proyecto
-CampusZen/
-│
-├── src/
-│   ├── servlets/
-│   ├── models/
-│   └── utils/
-│
-├── web/
-│   ├── jsp/
-│   ├── css/
-│   └── js/
-│
-└── WEB-INF/
-🎯 Objetivo Académico
-
-Este proyecto fue desarrollado como parte de una práctica académica para aplicar:
-
-Conexión a bases de datos con JDBC
-
-Arquitectura MVC básica
-
-Manejo de sesiones en JSP
-
-CRUD completo con MySQL
-
-🔮 Mejoras Futuras
-
-Integración con Google Calendar
-
-Recordatorios por correo electrónico
-
-Diseño responsive mejorado
-
-Panel de estadísticas de productividad
-
-👨‍💻 Autores
-
-Proyecto desarrollado por estudiantes como parte de su formación en desarrollo web con Java.
+MIT — free to use, modify, and distribute.
