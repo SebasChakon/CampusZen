@@ -1,0 +1,117 @@
+/* ====== RESET ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ====== BODY ====== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eaf7f1;
+    color: #1f3d2b;
+    padding: 20px;
+}
+
+/* ====== TITULOS ====== */
+h2, h3 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+/* ====== CONTENEDOR ====== */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ====== TABLAS ====== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background: #2e7d32;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+tr:hover {
+    background: #e8f5e9;
+}
+
+/* ====== INPUTS ====== */
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+input[type="time"],
+select {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #a5d6a7;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 5px rgba(46,125,50,0.3);
+}
+
+/* ====== BOTONES ====== */
+input[type="submit"],
+button {
+    background: #43a047;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background: #2e7d32;
+}
+
+/* ====== LINKS ====== */
+a {
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #1b5e20;
+}
+
+/* ====== MENSAJES ====== */
+.alert {
+    padding: 10px;
+    background: #c8e6c9;
+    color: #1b5e20;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* ====== CENTRAR ====== */
+.center {
+    text-align: center;
+}
