@@ -4,15 +4,11 @@
     HttpSession sesion_cli = request.getSession(true);
     String nUsuario = (String) sesion_cli.getAttribute("nUsuario");
     Connection con = null;
-    Statement sentencia = null;
-    ResultSet resultado = null;
-    String nombre = null;
+    Statement  sentencia = null;
+    ResultSet  resultado = null;
+    String nombre   = null;
     String apellido = null;
-    String usu = null;
-    if (nUsuario == null) {
-        response.sendRedirect("index.jsp");
-        return;
-    }
+    String usu      = null;
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -20,7 +16,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Panel de Control</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <%
@@ -32,14 +27,16 @@
             "SELECT * FROM Usuario WHERE usuario = '" + nUsuario + "' AND id_estado = 1"
         );
         while (resultado.next()) {
-            nombre = resultado.getString("nombre");
+            nombre   = resultado.getString("nombre");
             apellido = resultado.getString("apellido");
-            usu = resultado.getString("usuario");
+            usu      = resultado.getString("usuario");
         }
     } catch (Exception e) {
+        e.printStackTrace();
     }
-    if (con != null) con.close();
+    con.close();
 %>
+
 <div id="apDiv2">
     <table width="1184" height="50" border="1">
         <tr>
@@ -48,10 +45,11 @@
         </tr>
     </table>
 </div>
+
 <div id="apDiv1">
     <table width="1191" height="667" border="1">
         <tr>
-            <!-- Panel izquierdo: Menú -->
+            <!-- Panel izquierdo: Menú dinámico -->
             <td width="303" valign="top">
                 <div id="apDiv5">
                     <table width="244" border="1">
@@ -63,18 +61,19 @@
         Conexion cn1 = new Conexion();
         con = cn1.crearConexion();
         sentencia = con.createStatement();
+
+        // ADAPTADO A LA NUEVA BD:
+        // GesActividad solo tiene id_perfil e id_actividad.
+        // El menú se filtra por el perfil del usuario en sesión.
         resultado = sentencia.executeQuery(
-            "SELECT DISTINCT actividades.nom_actividad AS actividad, " +
-            "actividades.id_actividad AS idAct, " +
-            "actividades.enlace AS enlace " +
-            "FROM Usuario, actividades, gesActividad, Perfil " +
-            "WHERE " +
-            "gesActividad.id_actividad = actividades.id_actividad AND " +
-            "gesActividad.id_perfil = Perfil.id_perfil AND " +
-            "Usuario.id_perfil = Perfil.id_perfil AND " +
-            "Usuario.usuario = '" + nUsuario + "' AND " +
-            "actividades.id_estado = 1 AND " +
-            "gesActividad.id_estado = 1"
+            "SELECT a.nom_actividad AS actividad, " +
+            "       a.enlace        AS enlace " +
+            "FROM actividades a " +
+            "JOIN GesActividad g ON a.id_actividad = g.id_actividad " +
+            "JOIN Usuario u      ON g.id_perfil    = u.id_perfil " +
+            "WHERE u.usuario     = '" + nUsuario + "' " +
+            "  AND a.id_estado   = 1 " +
+            "  AND g.id_estado   = 1"
         );
         while (resultado.next()) {
 %>
@@ -87,12 +86,13 @@
                         </tr>
 <%
         }
-        if (con != null) con.close();
+        con.close();
     }
 %>
                     </table>
                 </div>
             </td>
+
             <!-- Panel derecho: iframe -->
             <td valign="top">
                 <div id="apDiv7">

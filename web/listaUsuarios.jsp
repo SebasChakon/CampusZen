@@ -26,6 +26,7 @@
             <th>Apellidos</th>
             <th>E-mail</th>
             <th>Usuario</th>
+            <th>Teléfono</th>
             <th>Contraseña</th>
             <th>Perfil</th>
             <th>Acción</th>
@@ -43,6 +44,7 @@
             <td><%=a.getNombre()%></td>
             <td><%=a.getApellido()%></td>
             <td><%=a.getEmail()%></td>
+            <td><%=a.getTelefono()%></td>
             <td><%=a.getUsuario()%></td>
             <td>******</td>
             <td><%=a.getIdperfil()%></td>

@@ -110,16 +110,15 @@ CREATE TABLE Notificacion (
 
 INSERT INTO Perfil (perfil) VALUES
 ('Administrador'),  
-('Usuario'),        
-('Docente'),        
+('Docente'),                
 ('Estudiante');     
 
 INSERT INTO Usuario VALUES
-(1001, 'Jean',   'Uribe',  'jean@mail.com',   '3001111111', 'jean',   '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 1, 1),
-(1002, 'Maria',  'Lopez',  'maria@mail.com',  '3002222222', 'maria',  '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 4, 1),
-(1003, 'Carlos', 'Perez',  'carlos@mail.com', '3003333333', 'carlos', '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 3, 1),
-(1004, 'Ana',    'Gomez',  'ana@mail.com',    '3004444444', 'ana',    '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 4, 1),
-(1005, 'Luis',   'Torres', 'luis@mail.com',   '3005555555', 'luis',   '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 2, 1);
+(1000000001, 'Jean',   'Uribe',  'jean@mail.com',   '3001111111', 'jean',   '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 1, 1),
+(1000000002, 'Maria',  'Lopez',  'maria@mail.com',  '3002222222', 'maria',  '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 3, 1),
+(1000000003, 'Carlos', 'Perez',  'carlos@mail.com', '3003333333', 'carlos', '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 2, 1),
+(1000000004, 'Ana',    'Gomez',  'ana@mail.com',    '3004444444', 'ana',    '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 3, 1),
+(1000000005, 'Luis',   'Torres', 'luis@mail.com',   '3005555555', 'luis',   '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 2, 1);
 
 INSERT INTO actividades (nom_actividad, enlace) VALUES
 ('Usuarios',       'listaUsuarios.jsp'),    
@@ -132,8 +131,8 @@ INSERT INTO actividades (nom_actividad, enlace) VALUES
 ('Notificaciones', 'notificaciones.jsp');  
 
 INSERT INTO Profesor (identificacion, especialidad, departamento) VALUES
-(1003, 'Programación', 'Ingeniería'),
-(1001, 'Bases de Datos', 'Ingeniería'); 
+(1000000003, 'Programación', 'Ingeniería'),
+(1000000001, 'Bases de Datos', 'Ingeniería'); 
 
 INSERT INTO Asignatura (nombre, descripcion, creditos, id_profesor) VALUES
 ('Programación Java', 'POO en Java',          3, 1),
@@ -146,14 +145,14 @@ INSERT INTO Horario (id_asignatura, id_profesor, dia_semana, hora_inicio, hora_f
 (2, 2, 'Jueves',     '10:00:00', '12:00:00', 'B202');
 
 INSERT INTO Actividad (nombre, descripcion, fecha_limite, id_asignatura, id_usuario_creador) VALUES
-('Proyecto Java', 'Sistema de tareas',    '2026-05-10 23:59:00', 1, 1003), 
-('Taller SQL',    'Consultas avanzadas',  '2026-05-05 23:59:00', 2, 1001); 
+('Proyecto Java', 'Sistema de tareas',    '2026-05-10 23:59:00', 1, 1000000003), 
+('Taller SQL',    'Consultas avanzadas',  '2026-05-05 23:59:00', 2, 1000000001); 
 
 INSERT INTO Tareas (nombre, descripcion, fecha_limite, prioridad, estado, id_actividad, id_usuario_asignado, observaciones) VALUES
-('CRUD Java',      'Crear CRUD completo',     '2026-05-01 23:59:00', 'alta',  'pendiente',   1, 1002, 'Usar MVC'),         
-('DAO MySQL',      'Implementar DAO',          '2026-04-28 23:59:00', 'media', 'en progreso', 2, 1004, 'Revisar conexiones'), 
-('Login Sistema',  'Autenticación usuarios',   '2026-04-25 23:59:00', 'alta',  'pendiente',   1, 1002, ''),                  
-('Consultas JOIN', 'Practicar JOINs',          '2026-04-27 23:59:00', 'baja',  'pendiente',   2, 1004, '');                 
+('CRUD Java',      'Crear CRUD completo',     '2026-05-01 23:59:00', 'alta',  'pendiente',   1, 1000000002, 'Usar MVC'),         
+('DAO MySQL',      'Implementar DAO',          '2026-04-28 23:59:00', 'media', 'en progreso', 2, 1000000004, 'Revisar conexiones'), 
+('Login Sistema',  'Autenticación usuarios',   '2026-04-25 23:59:00', 'alta',  'pendiente',   1, 1000000002, ''),                  
+('Consultas JOIN', 'Practicar JOINs',          '2026-04-27 23:59:00', 'baja',  'pendiente',   2, 1000000004, '');                 
 
 INSERT INTO GesActividad (id_perfil, id_actividad, id_estado) VALUES
 (1, 1, 1),
@@ -166,20 +165,17 @@ INSERT INTO GesActividad (id_perfil, id_actividad, id_estado) VALUES
 (1, 8, 1);
 
 INSERT INTO GesActividad (id_perfil, id_actividad, id_estado) VALUES
+(2, 5, 1),
+(2, 6, 1),
+(2, 7, 1),
+(2, 8, 1);
+
+INSERT INTO GesActividad (id_perfil, id_actividad, id_estado) VALUES
 (3, 5, 1),
-(3, 6, 1),
 (3, 7, 1),
 (3, 8, 1);
 
-INSERT INTO GesActividad (id_perfil, id_actividad, id_estado) VALUES
-(4, 5, 1),
-(4, 7, 1),
-(4, 8, 1),
-(4, 5, 1),
-(4, 7, 1),
-(4, 8, 1);
-
 INSERT INTO Notificacion (id_usuario, tipo, titulo, mensaje, url_referencia) VALUES
-(1002, 'Tarea',       'Entrega próxima',       'Tienes una tarea próxima a vencer',  'listaTareas.jsp'),
-(1004, 'Tarea',       'Nueva tarea asignada',  'Se te asignó una nueva tarea',       'listaTareas.jsp'),
-(1002, 'Recordatorio','Revisa tu progreso',    'Actualiza el estado de tus tareas',  'listaTareas.jsp');
+(1000000002, 'Tarea',       'Entrega próxima',       'Tienes una tarea próxima a vencer',  'listaTareas.jsp'),
+(1000000004, 'Tarea',       'Nueva tarea asignada',  'Se te asignó una nueva tarea',       'listaTareas.jsp'),
+(1000000002, 'Recordatorio','Revisa tu progreso',    'Actualiza el estado de tus tareas',  'listaTareas.jsp');

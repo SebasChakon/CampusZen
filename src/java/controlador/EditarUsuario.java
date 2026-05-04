@@ -1,32 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controlador;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
+import org.mindrot.jbcrypt.BCrypt;
 
-/**
- *
- * @author sebas
- */
 public class EditarUsuario extends HttpServlet {
-
-    String identificacion;
-    String nombre;
-    String apellido;
-    String email;
-    String telefono;
-    String usuario;
-    String clave;
-    int idperfil;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -34,14 +17,26 @@ public class EditarUsuario extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        identificacion = request.getParameter("cid");
-        nombre = request.getParameter("cnombre");
-        apellido = request.getParameter("capellido");
-        email = request.getParameter("cmail");
-        telefono = request.getParameter("ctelefono");
-        usuario = request.getParameter("cusuario");
-        clave = request.getParameter("cclave");
-        idperfil = Integer.parseInt(request.getParameter("cperfil"));
+        // cidd = identificacion original (PK, no cambia)
+        String identificacion = request.getParameter("cidd");
+        String nombre         = request.getParameter("cnombre");
+        String apellido       = request.getParameter("capellido");
+        String email          = request.getParameter("cmail");
+        String telefono       = request.getParameter("ctelefono");
+        String usuario        = request.getParameter("cusuario");
+        String claveNueva     = request.getParameter("cclave");
+        int    idperfil       = Integer.parseInt(request.getParameter("cperfil"));
+
+        UsuarioDAO udao = new UsuarioDAO();
+
+        // Si clave vacía → conservar hash actual
+        String claveHash;
+        if (claveNueva != null && !claveNueva.trim().isEmpty()) {
+            claveHash = BCrypt.hashpw(claveNueva, BCrypt.gensalt());
+        } else {
+            Usuario actual = udao.listadoDatos_Id(identificacion);
+            claveHash = (actual != null) ? actual.getClave() : "";
+        }
 
         Usuario a = new Usuario();
         a.setIdentificacion(identificacion);
@@ -50,54 +45,26 @@ public class EditarUsuario extends HttpServlet {
         a.setEmail(email);
         a.setTelefono(telefono);
         a.setUsuario(usuario);
-        a.setClave(clave);
+        a.setClave(claveHash);
         a.setIdperfil(idperfil);
 
-        UsuarioDAO udao = new UsuarioDAO();
         int status = udao.actualizarDatos(a);
 
         if (status > 0) {
             response.sendRedirect("listaUsuarios.jsp");
+        } else {
+            response.getWriter().println("Error al actualizar usuario");
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+            throws ServletException, IOException { processRequest(request, response); }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+            throws ServletException, IOException { processRequest(request, response); }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    public String getServletInfo() { return "Short description"; }
 }
