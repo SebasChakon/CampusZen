@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HorarioDAO implements horarioCRUD{
+public class HorarioDAO implements horarioCRUD {
 
     @Override
     public int agregar(Horario h) {
@@ -15,10 +15,10 @@ public class HorarioDAO implements horarioCRUD{
         try {
             Connection con = cn.crearConexion();
             PreparedStatement ps = con.prepareStatement(
-                "INSERT INTO Horario (id_asignatura, id_profesor, dia_semana, hora_inicio, hora_fin, salon, id_estado) " +
+                "INSERT INTO Horario (id_asignatura, id_docente, dia_semana, hora_inicio, hora_fin, salon, id_estado) " +
                 "VALUES (?,?,?,?,?,?,1)");
             ps.setInt(1, h.getId_asignatura());
-            ps.setInt(2, h.getId_profesor());
+            ps.setInt(2, h.getId_profesor()); 
             ps.setString(3, h.getDia_semana());
             ps.setString(4, h.getHora_inicio());
             ps.setString(5, h.getHora_fin());
@@ -36,7 +36,7 @@ public class HorarioDAO implements horarioCRUD{
         try {
             Connection con = cn.crearConexion();
             PreparedStatement ps = con.prepareStatement(
-                "UPDATE Horario SET id_asignatura=?, id_profesor=?, dia_semana=?, " +
+                "UPDATE Horario SET id_asignatura=?, id_docente=?, dia_semana=?, " +
                 "hora_inicio=?, hora_fin=?, salon=? WHERE id_horario=?");
             ps.setInt(1, h.getId_asignatura());
             ps.setInt(2, h.getId_profesor());
@@ -72,7 +72,8 @@ public class HorarioDAO implements horarioCRUD{
         Horario h = null;
         try {
             Connection con = cn.crearConexion();
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM Horario WHERE id_horario = ?");
+            PreparedStatement ps = con.prepareStatement(
+                "SELECT * FROM Horario WHERE id_horario = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) h = mapear(rs);
@@ -96,23 +97,20 @@ public class HorarioDAO implements horarioCRUD{
         return lista;
     }
 
-    // Para el calendario: horarios del usuario (via asignatura del profesor)
     @Override
-    public List<Horario> listarPorUsuario(int idUsuario) {
+    public List<Horario> listarPorDocente(int idDocente) {
         List<Horario> lista = new ArrayList<>();
         Conexion cn = new Conexion();
         try {
             Connection con = cn.crearConexion();
             PreparedStatement ps = con.prepareStatement(
-                "SELECT h.* FROM Horario h " +
-                "JOIN Profesor p ON h.id_profesor = p.id_profesor " +
-                "WHERE p.identificacion = ? AND h.id_estado = 1 " +
-                "ORDER BY h.dia_semana, h.hora_inicio");
-            ps.setInt(1, idUsuario);
+                "SELECT * FROM Horario WHERE id_docente = ? AND id_estado = 1 " +
+                "ORDER BY dia_semana, hora_inicio");
+            ps.setInt(1, idDocente);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) lista.add(mapear(rs));
             con.close();
-        } catch (SQLException ex) { System.out.println("ERROR listarPorUsuario Horario: " + ex.getMessage()); }
+        } catch (SQLException ex) { System.out.println("ERROR listarPorDocente Horario: " + ex.getMessage()); }
         return lista;
     }
 
@@ -120,7 +118,7 @@ public class HorarioDAO implements horarioCRUD{
         Horario h = new Horario();
         h.setId_horario(rs.getInt("id_horario"));
         h.setId_asignatura(rs.getInt("id_asignatura"));
-        h.setId_profesor(rs.getInt("id_profesor"));
+        h.setId_profesor(rs.getInt("id_docente")); 
         h.setDia_semana(rs.getString("dia_semana"));
         h.setHora_inicio(rs.getString("hora_inicio"));
         h.setHora_fin(rs.getString("hora_fin"));

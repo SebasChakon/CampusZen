@@ -10,7 +10,6 @@ package modelo;
  */
 public class Usuario {
 
-    int iddato;
     String identificacion;
     String nombre;
     String apellido;
@@ -24,9 +23,8 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int iddato, String identificacion, String nombre, String apellido, String email, String telefono,
+    public Usuario(String identificacion, String nombre, String apellido, String email, String telefono,
                    String usuario, String clave, int idperfil, int id_estado) {
-        this.iddato = iddato;
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -36,14 +34,6 @@ public class Usuario {
         this.clave = clave;
         this.idperfil = idperfil;
         this.id_estado = id_estado;
-    }
-
-    public int getIddato() {
-        return iddato;
-    }
-
-    public void setIddato(int iddato) {
-        this.iddato = iddato;
     }
 
     public String getIdentificacion() {

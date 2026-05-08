@@ -35,7 +35,6 @@ public class UsuarioDAO implements CRUD {
         return estatus;
     }
 
-    // Actualizar sin cambiar identificacion (versión original de la interfaz)
     @Override
     public int actualizarDatos(Usuario u) {
         Conexion cn = new Conexion();
@@ -63,9 +62,7 @@ public class UsuarioDAO implements CRUD {
         return estatus;
     }
 
-    // Actualizar permitiendo cambio de identificacion:
-    // u.getIdentificacion() = nueva identificacion
-    // identificacionOriginal = valor actual en BD para el WHERE
+    @Override
     public int actualizarDatos(Usuario u, String identificacionOriginal) {
         Conexion cn = new Conexion();
         Connection con;
@@ -114,6 +111,7 @@ public class UsuarioDAO implements CRUD {
         return estatus;
     }
 
+    @Override
     public int eliminarDatosPorIdentificacion(String identificacion) {
         Conexion cn = new Conexion();
         Connection con;
@@ -133,6 +131,7 @@ public class UsuarioDAO implements CRUD {
         return estatus;
     }
 
+    @Override
     public List<Usuario> listadoDatos() {
         List<Usuario> lista = new ArrayList<>();
         Conexion cn = new Conexion();
@@ -152,7 +151,6 @@ public class UsuarioDAO implements CRUD {
         return lista;
     }
 
-    // Requerido por interfaz CRUD
     @Override
     public Usuario listadoDatos_Id(int identificacion) {
         Conexion cn = new Conexion();
@@ -173,7 +171,7 @@ public class UsuarioDAO implements CRUD {
         return u;
     }
 
-    // Versión con String usada por EditarUsuario.jsp y EditarUsuario.java
+    @Override
     public Usuario listadoDatos_Id(String identificacion) {
         Conexion cn = new Conexion();
         Usuario u = null;

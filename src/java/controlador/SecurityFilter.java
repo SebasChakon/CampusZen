@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class SecurityFilter implements Filter {
 
-    private static final boolean USE_HTTPS = true;
+    private static final boolean USE_HTTPS = false;
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,

@@ -8,6 +8,7 @@ import java.util.List;
 
 public class AsignaturaDAO implements asignaturaCRUD {
 
+    @Override
     public int agregar(Asignatura a) {
         Conexion cn = new Conexion();
         int estatus = 0;
@@ -24,6 +25,7 @@ public class AsignaturaDAO implements asignaturaCRUD {
         return estatus;
     }
 
+    @Override
     public int actualizar(Asignatura a) {
         Conexion cn = new Conexion();
         int estatus = 0;
@@ -41,6 +43,7 @@ public class AsignaturaDAO implements asignaturaCRUD {
         return estatus;
     }
 
+    @Override
     public int eliminar(int id) {
         Conexion cn = new Conexion();
         int estatus = 0;
@@ -55,28 +58,30 @@ public class AsignaturaDAO implements asignaturaCRUD {
         return estatus;
     }
 
-    // ── Asignar / reasignar / desasignar profesor ────────────────────────────
-    public int asignarProfesor(int idAsignatura, int idProfesor) {
+    @Override
+    public int asignarProfesor(int idAsignatura, int idDocente) {
         Conexion cn = new Conexion();
         int estatus = 0;
         try {
             Connection con = cn.crearConexion();
             PreparedStatement ps = con.prepareStatement(
-                "UPDATE Asignatura SET id_profesor = ? WHERE id_asignatura = ?");
-            ps.setInt(1, idProfesor);   // 0 = desasignar
+                "UPDATE Asignatura SET id_docente = ? WHERE id_asignatura = ?");
+            ps.setInt(1, idDocente); 
             ps.setInt(2, idAsignatura);
             estatus = ps.executeUpdate();
             con.close();
-        } catch (SQLException ex) { System.out.println("ERROR asignarProfesor: " + ex.getMessage()); }
+        } catch (SQLException ex) { System.out.println("ERROR asignarDocente: " + ex.getMessage()); }
         return estatus;
     }
-
+    
+    @Override
     public Asignatura buscarPorId(int id) {
         Conexion cn = new Conexion();
         Asignatura a = null;
         try {
             Connection con = cn.crearConexion();
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM Asignatura WHERE id_asignatura = ?");
+            PreparedStatement ps = con.prepareStatement(
+                "SELECT * FROM Asignatura WHERE id_asignatura = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) a = mapear(rs);
@@ -85,6 +90,7 @@ public class AsignaturaDAO implements asignaturaCRUD {
         return a;
     }
 
+    @Override
     public List<Asignatura> listar() {
         List<Asignatura> lista = new ArrayList<>();
         Conexion cn = new Conexion();
@@ -105,7 +111,7 @@ public class AsignaturaDAO implements asignaturaCRUD {
         a.setNombre(rs.getString("nombre"));
         a.setDescripcion(rs.getString("descripcion"));
         a.setCreditos(rs.getInt("creditos"));
-        a.setId_profesor(rs.getInt("id_profesor"));
+        a.setId_profesor(rs.getInt("id_docente"));
         a.setId_estado(rs.getInt("id_estado"));
         return a;
     }

@@ -15,7 +15,7 @@
     <body>
         <h1>La información fue registrada con Éxito...</h1>
         <br>
-        <a href="index.jsp">Iniciar sesión</a>
+        <a href="login.jsp">Iniciar sesión</a>
         <br><br>
         <a href="Register.jsp">Registrar otro</a>
     </body>

@@ -14,7 +14,12 @@
 %>
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8"><title>Gestión de Actividades por Perfil</title></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Actividades por Perfil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/icono.png">
+</head>
 <body>
     <h2>Gestión de Actividades por Perfil</h2>
 

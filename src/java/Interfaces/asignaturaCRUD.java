@@ -14,7 +14,7 @@ public interface asignaturaCRUD {
     public int agregar(Asignatura a);
     public int actualizar(Asignatura a);
     public int eliminar(int id);
-    public int asignarProfesor(int idAsignatura, int idProfesor);
+    public int asignarProfesor(int idAsignatura, int idDocente);
     public Asignatura buscarPorId(int id);
     public List<Asignatura> listar();
 }

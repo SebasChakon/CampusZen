@@ -16,7 +16,12 @@
 %>
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8"><title>Editar Asignación</title></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Asignación</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/icono.png">
+</head>
 <body>
     <h2>Editar Asignación</h2>
     <form method="post" action="CtrolGesActividad">

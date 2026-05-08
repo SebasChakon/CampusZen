@@ -10,7 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="styles.css">
-        <title>Administración de Usuarios</title>
+        <link rel="icon" type="image/png" href="img/icono.png">
+        <title>CampusZen | Registro</title>
     </head>
     <body>
         <h2>Registro de Usuario</h2>
@@ -58,7 +59,8 @@
                         <select name="cidperfil" required>
                             <option value="">Seleccione un perfil</option>
                             <option value="1">Administrador</option>
-                            <option value="2">Usuario</option>
+                            <option value="2">Docente</option>
+                            <option value="3">Estudiante</option>
                         </select>
                     </td>
                 </tr>
@@ -69,7 +71,7 @@
                     </td>
                 </tr>
             </table>
-            <a href="index.jsp">Log In</a>
+            <p style="margin-top: 18px; color: #4b6f52;">¿Ya tienes cuenta? <a href="login.jsp">Inicia sesión</a>.</p>
         </form>
     </body>
 </html>

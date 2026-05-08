@@ -37,7 +37,7 @@ public class CtrolHorario extends HttpServlet {
     private Horario buildHorario(HttpServletRequest request) {
         Horario h = new Horario();
         h.setId_asignatura(Integer.parseInt(request.getParameter("cid_asignatura")));
-        h.setId_profesor(Integer.parseInt(request.getParameter("cid_profesor")));
+        h.setId_profesor(Integer.parseInt(request.getParameter("cid_docente")));
         h.setDia_semana(request.getParameter("cdia_semana"));
         h.setHora_inicio(request.getParameter("chora_inicio"));
         h.setHora_fin(request.getParameter("chora_fin"));

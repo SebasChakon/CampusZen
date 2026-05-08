@@ -16,5 +16,5 @@ public interface horarioCRUD {
     public int eliminar(int id);
     public Horario buscarPorId(int id);
     public List<Horario> listar();
-    public List<Horario> listarPorUsuario(int idUsuario);
+    public List<Horario> listarPorDocente(int idDocente);
 }

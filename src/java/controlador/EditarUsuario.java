@@ -17,7 +17,6 @@ public class EditarUsuario extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        // cidd = identificacion original (PK, no cambia)
         String identificacion = request.getParameter("cidd");
         String nombre         = request.getParameter("cnombre");
         String apellido       = request.getParameter("capellido");

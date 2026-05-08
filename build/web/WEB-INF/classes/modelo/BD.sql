@@ -4,8 +4,7 @@ USE CampusZen;
 
 CREATE TABLE Perfil (
     id_perfil INT PRIMARY KEY AUTO_INCREMENT,
-    perfil VARCHAR(30),
-    id_estado INT DEFAULT 1
+    perfil VARCHAR(30)
 );
 
 CREATE TABLE Usuario (
@@ -28,36 +27,27 @@ CREATE TABLE actividades (
     id_estado INT DEFAULT 1
 );
 
-CREATE TABLE Profesor (
-    id_profesor INT PRIMARY KEY AUTO_INCREMENT,
-    identificacion INT,
-    especialidad VARCHAR(150),
-    departamento VARCHAR(150),
-    id_estado INT DEFAULT 1,
-    FOREIGN KEY (identificacion) REFERENCES Usuario(identificacion)
-);
-
 CREATE TABLE Asignatura (
     id_asignatura INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(150),
     descripcion VARCHAR(255),
     creditos INT DEFAULT 3,
-    id_profesor INT,
+    id_docente INT,
     id_estado INT DEFAULT 1,
-    FOREIGN KEY (id_profesor) REFERENCES Profesor(id_profesor)
+    FOREIGN KEY (id_docente) REFERENCES Usuario(identificacion)
 );
 
 CREATE TABLE Horario (
     id_horario INT PRIMARY KEY AUTO_INCREMENT,
     id_asignatura INT,
-    id_profesor INT,
+    id_docente INT,
     dia_semana VARCHAR(15),
     hora_inicio TIME,
     hora_fin TIME,
     salon VARCHAR(50),
     id_estado INT DEFAULT 1,
     FOREIGN KEY (id_asignatura) REFERENCES Asignatura(id_asignatura),
-    FOREIGN KEY (id_profesor) REFERENCES Profesor(id_profesor)
+    FOREIGN KEY (id_docente) REFERENCES Usuario(identificacion)
 );
 
 CREATE TABLE Actividad (
@@ -114,35 +104,34 @@ INSERT INTO Perfil (perfil) VALUES
 ('Estudiante');     
 
 INSERT INTO Usuario VALUES
-(1000000001, 'Jean',   'Uribe',  'jean@mail.com',   '3001111111', 'jean',   '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 1, 1),
+(1000000001, 'Sebastian',   'Chacon',  'sebas@mail.com',   '3001111111', 'sebas',   '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 1, 1),
+(1000000006, 'Santiago',   'Ramirez',  'santi@mail.com',   '3006666666', 'santi',   '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 1, 1),
 (1000000002, 'Maria',  'Lopez',  'maria@mail.com',  '3002222222', 'maria',  '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 3, 1),
 (1000000003, 'Carlos', 'Perez',  'carlos@mail.com', '3003333333', 'carlos', '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 2, 1),
 (1000000004, 'Ana',    'Gomez',  'ana@mail.com',    '3004444444', 'ana',    '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 3, 1),
 (1000000005, 'Luis',   'Torres', 'luis@mail.com',   '3005555555', 'luis',   '$2a$10$u2MoYJ0T0tl.9lZuKxwWEeiAOcZRplf/huJP1K7lHPCcam6R3yXDO', 2, 1);
 
 INSERT INTO actividades (nom_actividad, enlace) VALUES
-('Usuarios',       'listaUsuarios.jsp'),    
-('Perfiles',       'listaPerfiles.jsp'),     
-('Actividades',    'listaActividades.jsp'),  
-('GesActividad',   'listaGesActividad.jsp'), 
-('Tareas',         'listaTareas.jsp'),       
-('Horarios',       'listaHorarios.jsp'),     
-('Calendario',     'calendario.jsp'),        
-('Notificaciones', 'notificaciones.jsp');  
+('Usuarios',              'listaUsuarios.jsp'),    
+('Perfiles',              'listaPerfiles.jsp'),     
+('Actividades',           'listaActividades.jsp'),  
+('GesActividad',          'listaGesActividad.jsp'), 
+('Tareas',                'listaTareas.jsp'),
+('Actividades Academicas','listaActividad.jsp'),
+('Horarios',              'listaHorarios.jsp'),
+('Asignatuas',            'listaAsignaturas.jsp'),       
+('Calendario',            'calendario.jsp'),        
+('Notificaciones',        'notificaciones.jsp');  
 
-INSERT INTO Profesor (identificacion, especialidad, departamento) VALUES
-(1000000003, 'Programación', 'Ingeniería'),
-(1000000001, 'Bases de Datos', 'Ingeniería'); 
+INSERT INTO Asignatura (nombre, descripcion, creditos, id_docente) VALUES
+('Programación Java', 'POO en Java',        3, 1000000003),
+('Bases de Datos',    'MySQL y modelado',   3, 1000000005);
 
-INSERT INTO Asignatura (nombre, descripcion, creditos, id_profesor) VALUES
-('Programación Java', 'POO en Java',          3, 1),
-('Bases de Datos',    'MySQL y modelado',     3, 2); 
-
-INSERT INTO Horario (id_asignatura, id_profesor, dia_semana, hora_inicio, hora_fin, salon) VALUES
-(1, 1, 'Lunes',      '08:00:00', '10:00:00', 'A101'),
-(1, 1, 'Miércoles',  '08:00:00', '10:00:00', 'A101'),
-(2, 2, 'Martes',     '10:00:00', '12:00:00', 'B202'),
-(2, 2, 'Jueves',     '10:00:00', '12:00:00', 'B202');
+INSERT INTO Horario (id_asignatura, id_docente, dia_semana, hora_inicio, hora_fin, salon) VALUES
+(1, 1000000003, 'Lunes',     '08:00:00', '10:00:00', 'A101'),
+(1, 1000000003, 'Miércoles', '08:00:00', '10:00:00', 'A101'),
+(2, 1000000005, 'Martes',    '10:00:00', '12:00:00', 'B202'),
+(2, 1000000005, 'Jueves',    '10:00:00', '12:00:00', 'B202');
 
 INSERT INTO Actividad (nombre, descripcion, fecha_limite, id_asignatura, id_usuario_creador) VALUES
 ('Proyecto Java', 'Sistema de tareas',    '2026-05-10 23:59:00', 1, 1000000003), 
@@ -162,18 +151,23 @@ INSERT INTO GesActividad (id_perfil, id_actividad, id_estado) VALUES
 (1, 5, 1),
 (1, 6, 1),
 (1, 7, 1),
-(1, 8, 1);
+(1, 8, 1),
+(1, 9, 1),
+(1, 10, 1);
 
 INSERT INTO GesActividad (id_perfil, id_actividad, id_estado) VALUES
 (2, 5, 1),
 (2, 6, 1),
 (2, 7, 1),
-(2, 8, 1);
+(2, 8, 1),
+(2, 9, 1),
+(2, 10, 1);
 
 INSERT INTO GesActividad (id_perfil, id_actividad, id_estado) VALUES
 (3, 5, 1),
-(3, 7, 1),
-(3, 8, 1);
+(3, 6, 1),
+(3, 9, 1),
+(3, 10, 1);
 
 INSERT INTO Notificacion (id_usuario, tipo, titulo, mensaje, url_referencia) VALUES
 (1000000002, 'Tarea',       'Entrega próxima',       'Tienes una tarea próxima a vencer',  'listaTareas.jsp'),

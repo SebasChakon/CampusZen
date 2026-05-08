@@ -71,6 +71,7 @@ public class ActividadesDAO implements actividadesCRUD {
         return estatus;
     }
 
+    @Override
     public List<Actividades> listadoActividades() {
         List<Actividades> lista = new ArrayList<>();
         Conexion cn = new Conexion();

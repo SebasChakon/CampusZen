@@ -6,6 +6,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import modelo.Tarea;
 import modelo.TareaDAO;
+import modelo.Notificacion;
+import modelo.NotificacionDAO;
 import java.io.IOException;
 
 public class CtrolTareas extends HttpServlet {
@@ -21,7 +23,22 @@ public class CtrolTareas extends HttpServlet {
 
         if ("agregar".equals(accion)) {
             Tarea t = buildTarea(request);
-            if (dao.agregar(t) > 0) response.sendRedirect("listaTareas.jsp");
+            int idTarea = dao.agregar(t);
+            if (idTarea > 0) {
+                t.setId_tarea(idTarea);
+                if (t.getId_usuario_asignado() > 0) {
+                    NotificacionDAO notiDAO = new NotificacionDAO();
+                    Notificacion noti = new Notificacion();
+                    noti.setId_usuario(t.getId_usuario_asignado());
+                    noti.setTipo("Tarea");
+                    noti.setTitulo("Nueva tarea asignada");
+                    noti.setMensaje("Se te ha asignado la tarea: " + t.getNombre() +
+                                   (t.getFecha_limite() != null ? " (Límite: " + t.getFecha_limite() + ")" : ""));
+                    noti.setUrl_referencia("listaTareas.jsp?id=" + t.getId_tarea());
+                    notiDAO.agregar(noti);
+                }
+                response.sendRedirect("listaTareas.jsp");
+            }
 
         } else if ("editar".equals(accion)) {
             Tarea t = buildTarea(request);
@@ -33,7 +50,6 @@ public class CtrolTareas extends HttpServlet {
                 response.sendRedirect("listaTareas.jsp");
 
         } else if ("cambiarEstado".equals(accion)) {
-            // Permite al estudiante actualizar solo el estado de su tarea
             Tarea t = dao.buscarPorId(Integer.parseInt(request.getParameter("id")));
             if (t != null) {
                 t.setEstado(request.getParameter("estado"));

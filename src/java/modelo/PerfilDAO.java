@@ -94,6 +94,7 @@ public class PerfilDAO implements perfilCRUD {
         return p;
     }
 
+    @Override
     public List<Perfil> listadoPerfiles() {
         List<Perfil> lista = new ArrayList<>();
         Conexion cn = new Conexion();

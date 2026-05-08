@@ -29,6 +29,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/icono.png">
     <title>Notificaciones y Tareas Pendientes</title>
     <style>
         body { font-family: Arial, sans-serif; padding: 16px; }
@@ -52,15 +53,100 @@
         .btn-sm { padding: 3px 8px; font-size: 11px; }
         .seccion { margin-bottom: 28px; }
         .marcar-todas { margin-bottom: 10px; }
+
+        .seccion {
+            margin-bottom: 32px;
+        }
+
+        .tarea-row,
+        .noti-card {
+            background: #f8fcf8;
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            border: 1px solid #d8e8d8;
+        }
+
+        .tarea-row form {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 8px;
+
+            margin-top: 10px;
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+            width: auto !important;
+        }
+
+        .tarea-row select {
+            width: auto !important;
+            min-width: 150px;
+
+            padding: 6px 10px !important;
+            font-size: 12px !important;
+
+            border-radius: 8px;
+            box-shadow: none !important;
+        }
+
+        .btn,
+        .btn-sm,
+        .tarea-row input[type="submit"] {
+
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+
+            width: auto !important;
+            min-width: unset !important;
+
+            padding: 6px 12px !important;
+
+            border-radius: 8px !important;
+
+            font-size: 12px !important;
+            font-weight: 600;
+
+            text-decoration: none;
+            border: none;
+
+            background: #3f8f49 !important;
+            color: white !important;
+
+            cursor: pointer;
+
+            box-shadow: none !important;
+        }
+
+        .btn:hover,
+        .btn-sm:hover,
+        .tarea-row input[type="submit"]:hover {
+            background: #2f6f38 !important;
+            transform: none !important;
+        }
+
+        .tarea-row a,
+        .noti-card a {
+            margin-top: 8px;
+        }
+
+        .tarea-row small {
+            color: #557;
+        }
+
+        .badge {
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
 
-    <!-- ── Tareas pendientes ───────────────────────────────────────────────── -->
     <div class="seccion">
-        <h2>&#9989; Tareas Pendientes</h2>
+        <h2> Tareas Pendientes</h2>
         <% if (pendientes.isEmpty()) { %>
-            <p>No tienes tareas pendientes. &#127881;</p>
+            <p>No tienes tareas pendientes.</p>
         <% } else { %>
             <p>Tienes <b><%=pendientes.size()%></b> tarea(s) pendiente(s):</p>
             <% for (Tarea t : pendientes) { %>
@@ -73,7 +159,6 @@
                     <br/><small><%=t.getDescripcion()%></small>
                 <% } %>
                 <br/>
-                <!-- Cambio rápido de estado -->
                 <form method="post" action="CtrolTareas" style="display:inline; margin-top:4px;">
                     <input type="hidden" name="accion" value="cambiarEstado"/>
                     <input type="hidden" name="id" value="<%=t.getId_tarea()%>"/>
@@ -84,15 +169,14 @@
                     </select>
                     <input type="submit" value="Actualizar" class="btn btn-sm"/>
                 </form>
-                <a href="EditarTarea.jsp?id=<%=t.getId_tarea()%>" target="marco" class="btn btn-sm">Ver detalle</a>
+                <a href="listaTareas.jsp" target="marco" class="btn btn-sm">Ver detalle</a>
             </div>
             <% } %>
         <% } %>
     </div>
 
-    <!-- ── Notificaciones ─────────────────────────────────────────────────── -->
     <div class="seccion">
-        <h2>&#128276; Notificaciones
+        <h2>Notificaciones
             <% if (noLeidas > 0) { %>
                 <span class="badge"><%=noLeidas%></span>
             <% } %>
@@ -101,7 +185,7 @@
         <% if (noLeidas > 0) { %>
         <div class="marcar-todas">
             <a href="CtrolNotificacion?accion=marcarTodas" class="btn">
-                &#10003; Marcar todas como leídas
+                Marcar todas como leídas
             </a>
         </div>
         <% } %>
@@ -114,7 +198,7 @@
         %>
         <div class="<%=cssClass%>">
             <span class="tipo-badge"><%=n.getTipo()%></span>
-            <% if (n.getLeida() == 0) { %><b> &#9679; NUEVA</b><% } %>
+            <% if (n.getLeida() == 0) { %><b>NUEVA</b><% } %>
             <br/>
             <b><%=n.getTitulo()%></b>
             <br/>

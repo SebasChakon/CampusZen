@@ -9,16 +9,15 @@ import modelo.Tarea;
 
 public class TareaDAO implements tareasCRUD{
 
-    // ── Agregar ──────────────────────────────────────────────────────────────
     @Override
     public int agregar(Tarea t) {
         Conexion cn = new Conexion();
-        int estatus = 0;
+        int generatedId = 0;
         try {
             Connection con = cn.crearConexion();
             String q = "INSERT INTO Tareas (nombre, descripcion, fecha_limite, prioridad, estado, " +
                        "id_actividad, id_usuario_asignado, observaciones, id_estado) VALUES (?,?,?,?,?,?,?,?,1)";
-            PreparedStatement ps = con.prepareStatement(q);
+            PreparedStatement ps = con.prepareStatement(q, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, t.getNombre());
             ps.setString(2, t.getDescripcion());
             ps.setString(3, t.getFecha_limite());
@@ -27,13 +26,19 @@ public class TareaDAO implements tareasCRUD{
             ps.setInt(6, t.getId_actividad());
             ps.setInt(7, t.getId_usuario_asignado());
             ps.setString(8, t.getObservaciones());
-            estatus = ps.executeUpdate();
+            int estatus = ps.executeUpdate();
+            if (estatus > 0) {
+                ResultSet rs = ps.getGeneratedKeys();
+                if (rs.next()) {
+                    generatedId = rs.getInt(1);
+                }
+                rs.close();
+            }
             con.close();
         } catch (SQLException ex) { System.out.println("ERROR agregar Tarea: " + ex.getMessage()); }
-        return estatus;
+        return generatedId; // Devuelve el ID generado o 0 si falla
     }
 
-    // ── Actualizar ───────────────────────────────────────────────────────────
     @Override
     public int actualizar(Tarea t) {
         Conexion cn = new Conexion();
@@ -58,7 +63,6 @@ public class TareaDAO implements tareasCRUD{
         return estatus;
     }
 
-    // ── Soft delete ──────────────────────────────────────────────────────────
     @Override
     public int eliminar(int id) {
         Conexion cn = new Conexion();
@@ -74,7 +78,6 @@ public class TareaDAO implements tareasCRUD{
         return estatus;
     }
 
-    // ── Buscar por ID ────────────────────────────────────────────────────────
     @Override
     public Tarea buscarPorId(int id) {
         Conexion cn = new Conexion();
@@ -91,7 +94,6 @@ public class TareaDAO implements tareasCRUD{
         return t;
     }
 
-    // ── Listar todas habilitadas ─────────────────────────────────────────────
     @Override
     public List<Tarea> listar() {
         List<Tarea> lista = new ArrayList<>();
@@ -107,7 +109,6 @@ public class TareaDAO implements tareasCRUD{
         return lista;
     }
 
-    // ── Listar por usuario asignado ──────────────────────────────────────────
     @Override
     public List<Tarea> listarPorUsuario(int idUsuario) {
         List<Tarea> lista = new ArrayList<>();
@@ -124,7 +125,6 @@ public class TareaDAO implements tareasCRUD{
         return lista;
     }
 
-    // ── Listar tareas pendientes (para notificaciones) ───────────────────────
     @Override
     public List<Tarea> listarPendientesPorUsuario(int idUsuario) {
         List<Tarea> lista = new ArrayList<>();

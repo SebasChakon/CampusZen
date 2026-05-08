@@ -1,5 +1,6 @@
 package modelo;
 
+import Interfaces.gesActividadCRUD;
 import config.Conexion;
 import java.sql.*;
 import java.util.ArrayList;

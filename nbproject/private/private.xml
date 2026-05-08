@@ -4,9 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/SecurityFilter.java</file>
-            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/LoginDAO.java</file>
-            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CerrarSesion.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/GesActividad.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/GesActividadDAO.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/EditarUsuario.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/Register.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/EditarUsuario.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/UsuarioDAO.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/listaUsuarios.jsp</file>
             <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/ControladorUsuario.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/config/Conexion.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/EditarTarea.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/cpanel.jsp</file>
         </group>
     </open-files>
 </project-private>

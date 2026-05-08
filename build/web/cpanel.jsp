@@ -10,12 +10,69 @@
     String apellido = null;
     String usu      = null;
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Panel de Control</title>
+    <meta charset="UTF-8">
+    <title>CampusZen</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/icono.png">
+    <style>
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px;
+        }
+
+        .topbar > div:first-child {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .topbar .hero-illustration {
+            width: 90px;
+            height: 90px;
+            min-height: 90px;
+
+            margin: 0;
+
+            border-radius: 20px;
+
+            flex-shrink: 0;
+        }
+
+        .topbar .hero-illustration::before {
+            background-size: 55px;
+            opacity: 0.15;
+        }
+
+        .topbar .hero-illustration::after {
+            font-size: 2rem;
+            letter-spacing: 0.12em;
+        }
+
+        .topbar h1 {
+            margin: 0;
+            font-size: 2rem;
+            line-height: 1.1;
+        }
+
+        .topbar .eyebrow {
+            margin-bottom: 8px;
+        }
+
+        .topbar .header-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .topbar .hero-illustration::after {
+            content: none;
+        }
+    </style>
 </head>
 <body>
 <%
@@ -37,34 +94,37 @@
     con.close();
 %>
 
-<div id="apDiv2">
-    <table width="1184" height="50" border="1">
-        <tr>
-            <td width="473"><%=nombre%>&nbsp;<%=apellido%></td>
-            <td width="168"><a href="CerrarSesion">Cerrar sesión</a></td>
-        </tr>
-    </table>
-</div>
+    <div class="page-shell cpanel-shell">
+        <header class="topbar">
 
-<div id="apDiv1">
-    <table width="1191" height="667" border="1">
-        <tr>
-            <!-- Panel izquierdo: Menú dinámico -->
-            <td width="303" valign="top">
-                <div id="apDiv5">
-                    <table width="244" border="1">
-                        <tr>
-                            <th><strong>Menú</strong></th>
-                        </tr>
+            <div>
+                <div class="hero-illustration"></div>
+
+                <div class="header-text">
+                    <span class="eyebrow">CampusZen</span>
+                    <h1>Hola, <%=nombre%> <%=apellido%></h1>
+                </div>
+            </div>
+
+            <div class="topbar-actions">
+                <a class="btn btn-secondary" href="CerrarSesion">
+                    Cerrar sesión
+                </a>
+            </div>
+
+        </header>
+
+        <div class="dashboard-layout cpanel-layout">
+            <aside class="sidebar">
+                <div class="container">
+                    <h3>Menú</h3>
+                    <ul class="menu-list">
 <%
     if (usu != null && usu.equals(nUsuario)) {
         Conexion cn1 = new Conexion();
         con = cn1.crearConexion();
         sentencia = con.createStatement();
 
-        // ADAPTADO A LA NUEVA BD:
-        // GesActividad solo tiene id_perfil e id_actividad.
-        // El menú se filtra por el perfil del usuario en sesión.
         resultado = sentencia.executeQuery(
             "SELECT a.nom_actividad AS actividad, " +
             "       a.enlace        AS enlace " +
@@ -77,30 +137,26 @@
         );
         while (resultado.next()) {
 %>
-                        <tr>
-                            <td>
-                                <a href="<%=resultado.getString("enlace")%>" target="marco">
-                                    <%=resultado.getString("actividad")%>
-                                </a>
-                            </td>
-                        </tr>
+                        <li>
+                            <a href="<%=resultado.getString("enlace")%>" target="marco">
+                                <%=resultado.getString("actividad")%>
+                            </a>
+                        </li>
 <%
         }
         con.close();
     }
 %>
-                    </table>
+                    </ul>
                 </div>
-            </td>
+            </aside>
 
-            <!-- Panel derecho: iframe -->
-            <td valign="top">
-                <div id="apDiv7">
-                    <iframe width="869" height="493" name="marco" src="front.jsp" frameborder="0"></iframe>
+            <main class="content-panel">
+                <div class="container">
+                    <iframe name="marco" src="front.jsp" frameborder="0"></iframe>
                 </div>
-            </td>
-        </tr>
-    </table>
-</div>
+            </main>
+        </div>
+    </div>
 </body>
 </html>

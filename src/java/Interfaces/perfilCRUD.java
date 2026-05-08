@@ -1,5 +1,6 @@
 package Interfaces;
 
+import java.util.List;
 import modelo.Perfil;
 
 public interface perfilCRUD {
@@ -7,4 +8,5 @@ public interface perfilCRUD {
     public int actualizarPerfil(Perfil p);
     public int eliminarPerfil(int id);
     public Perfil listadoPerfil_Id(int id);
+    public List<Perfil> listadoPerfiles();
 }

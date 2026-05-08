@@ -6,6 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/icono.png">
     <title>Editar Usuario</title>
 </head>
 <body>
@@ -120,9 +121,8 @@
                     <select name="cperfil" required title="Seleccione un perfil">
                         <option value="">Seleccione un perfil</option>
                         <option value="1" <%=a.getIdperfil()==1?"selected":""%>>Administrador</option>
-                        <option value="2" <%=a.getIdperfil()==2?"selected":""%>>Usuario</option>
-                        <option value="3" <%=a.getIdperfil()==3?"selected":""%>>Docente</option>
-                        <option value="4" <%=a.getIdperfil()==4?"selected":""%>>Estudiante</option>
+                        <option value="2" <%=a.getIdperfil()==2?"selected":""%>>Docente</option>
+                        <option value="3" <%=a.getIdperfil()==3?"selected":""%>>Estudiante</option>
                     </select>
                 </td>
             </tr>

@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="modelo.Tarea, modelo.TareaDAO"%>
 <%@page import="config.Conexion, java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -7,7 +8,6 @@
     Tarea t = dao.buscarPorId(id);
     if (t == null) { out.println("Tarea no encontrada."); return; }
 
-    // Cargar actividades y usuarios para los combos
     List<String[]> actividades = new java.util.ArrayList<>();
     List<String[]> usuarios    = new java.util.ArrayList<>();
     try {
@@ -37,6 +37,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar Tarea</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/icono.png">
 </head>
 <body>
     <h2>Editar Tarea</h2>
