@@ -57,6 +57,6 @@ A student productivity tool designed to help manage academic life in one place. 
 
 ---
 
-## 📄 License
+## License
 
 MIT — free to use, modify, and distribute.
