@@ -29,11 +29,12 @@
 
         <table>
             <tr>
-                <td>Identificación:</td>
+                <td><label for="cidentificacion">Identificación:</label></td>
                 <td>
                     <%-- Solo lectura: se muestra pero no se puede cambiar --%>
                     <input
                         type="text"
+                        id="cidentificacion"
                         value="<%=a.getIdentificacion()%>"
                         disabled
                         style="background:#f0f0f0; color:#888; cursor:not-allowed;"
@@ -41,10 +42,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Nombre:</td>
+                <td><label for="cnombre">Nombre:</label></td>
                 <td>
                     <input
                         type="text"
+                        id="cnombre"
                         name="cnombre"
                         size="40"
                         value="<%=a.getNombre()%>"
@@ -53,10 +55,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Apellido:</td>
+                <td><label for="capellido">Apellido:</label></td>
                 <td>
                     <input
                         type="text"
+                        id="capellido"
                         name="capellido"
                         size="40"
                         value="<%=a.getApellido()%>"
@@ -65,10 +68,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Email:</td>
+                <td><label for="cmail">Email:</label></td>
                 <td>
                     <input
                         type="email"
+                        id="cmail"
                         name="cmail"
                         size="60"
                         value="<%=a.getEmail()%>"
@@ -77,10 +81,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Teléfono:</td>
+                <td><label for="ctelefono">Teléfono:</label></td>
                 <td>
                     <input
                         type="text"
+                        id="ctelefono"
                         name="ctelefono"
                         value="<%=a.getTelefono()%>"
                         required
@@ -91,10 +96,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Usuario:</td>
+                <td><label for="cusuario">Usuario:</label></td>
                 <td>
                     <input
                         type="text"
+                        id="cusuario"
                         name="cusuario"
                         value="<%=a.getUsuario()%>"
                         required
@@ -103,10 +109,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Clave:</td>
+                <td><label for="cclave">Clave:</label></td>
                 <td>
                     <input
                         type="password"
+                        id="cclave"
                         name="cclave"
                         placeholder="Dejar vacío para no cambiar"
                         minlength="8"
@@ -116,9 +123,9 @@
                 </td>
             </tr>
             <tr>
-                <td>Perfil:</td>
+                <td><label for="cperfil">Perfil:</label></td>
                 <td>
-                    <select name="cperfil" required title="Seleccione un perfil">
+                    <select id="cperfil" name="cperfil" required title="Seleccione un perfil">
                         <option value="">Seleccione un perfil</option>
                         <option value="1" <%=a.getIdperfil()==1?"selected":""%>>Administrador</option>
                         <option value="2" <%=a.getIdperfil()==2?"selected":""%>>Docente</option>

@@ -82,16 +82,16 @@
             <input type="hidden" name="accion" value="agregar"/>
             <table>
                 <tr>
-                    <td>Nombre:</td>
-                    <td><input type="text" name="cnombre" required/></td>
+                    <td><label for="cnombre">Nombre:</label></td>
+                    <td><input type="text" id="cnombre" name="cnombre" required/></td>
                 </tr>
                 <tr>
-                    <td>Descripción:</td>
-                    <td><input type="text" name="cdescripcion"/></td>
+                    <td><label for="cdescripcion">Descripción:</label></td>
+                    <td><input type="text" id="cdescripcion" name="cdescripcion"/></td>
                 </tr>
                 <tr>
-                    <td>Créditos:</td>
-                    <td><input type="number" name="ccreditos" value="3" min="1" max="10"/></td>
+                    <td><label for="ccreditos">Créditos:</label></td>
+                    <td><input type="number" id="ccreditos" name="ccreditos" value="3" min="1" max="10"/></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Agregar"/></td>

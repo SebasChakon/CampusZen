@@ -29,9 +29,9 @@
         <input type="hidden" name="cidgesActividad" value="<%=g.getIdgesActividad()%>"/>
         <table border="1">
             <tr>
-                <td>Perfil:</td>
+                <td><label for="cid_perfil">Perfil:</label></td>
                 <td>
-                    <select name="cid_perfil" required>
+                    <select id="cid_perfil" name="cid_perfil" required>
                         <% for (Perfil p : listaPerfiles) { %>
                         <option value="<%=p.getId_perfil()%>"
                             <%=p.getId_perfil()==g.getId_perfil()?"selected":""%>>
@@ -42,9 +42,9 @@
                 </td>
             </tr>
             <tr>
-                <td>Actividad (menú):</td>
+                <td><label for="cid_actividad">Actividad (menú):</label></td>
                 <td>
-                    <select name="cid_actividad" required>
+                    <select id="cid_actividad" name="cid_actividad" required>
                         <% for (Actividades a : listaActs) { %>
                         <option value="<%=a.getId_actividad()%>"
                             <%=a.getId_actividad()==g.getId_actividad()?"selected":""%>>

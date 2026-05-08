@@ -162,7 +162,8 @@
                 <form method="post" action="CtrolTareas" style="display:inline; margin-top:4px;">
                     <input type="hidden" name="accion" value="cambiarEstado"/>
                     <input type="hidden" name="id" value="<%=t.getId_tarea()%>"/>
-                    <select name="estado" style="font-size:11px;">
+                    <label for="estado-<%=t.getId_tarea()%>">Nuevo Estado:</label>
+                    <select id="estado-<%=t.getId_tarea()%>" name="estado" style="font-size:11px;">
                         <option value="pendiente"   <%="pendiente".equals(t.getEstado())?"selected":""%>>Pendiente</option>
                         <option value="en progreso" <%="en progreso".equals(t.getEstado())?"selected":""%>>En Progreso</option>
                         <option value="entregada"   <%="entregada".equals(t.getEstado())?"selected":""%>>Entregada</option>

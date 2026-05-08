@@ -18,34 +18,35 @@
         <form id="form1" name="form1" method="post" action="ControladorUsuario">
             <table>
                 <tr>
-                    <td>Identificación:</td>
-                    <td><input type="text" name="cidentificacion" required minlength="10" maxlength="10" pattern="[0-9]{10}" title="Debe contener exactamente 10 números"/></td>
+                    <td><label for="cidentificacion">Identificación:</label></td>
+                    <td><input type="text" id="cidentificacion" name="cidentificacion" required minlength="10" maxlength="10" pattern="[0-9]{10}" title="Debe contener exactamente 10 números"/></td>
                 </tr>
                 <tr>
-                    <td>Nombre:</td>
-                    <td><input type="text" name="cnombre" required title="Ingrese su nombre"/></td>
+                    <td><label for="cnombre">Nombre:</label></td>
+                    <td><input type="text" id="cnombre" name="cnombre" required title="Ingrese su nombre"/></td>
                 </tr>
                 <tr>
-                    <td>Apellido:</td>
-                    <td><input type="text" name="capellido" required title="Ingrese su apellido"/></td>
+                    <td><label for="capellido">Apellido:</label></td>
+                    <td><input type="text" id="capellido" name="capellido" required title="Ingrese su apellido"/></td>
                 </tr>
                 <tr>
-                    <td>Email:</td>
-                    <td><input type="email" name="cmail" required title="Ingrese un correo válido (ejemplo@correo.com)"/></td>
+                    <td><label for="cmail">Email:</label></td>
+                    <td><input type="email" id="cmail" name="cmail" required title="Ingrese un correo válido (ejemplo@correo.com)"/></td>
                 </tr>
                 <tr>
-                    <td>Teléfono:</td>
-                    <td><input type="text" name="ctelefono" required minlength="10" maxlength="10" pattern="[0-9]{10}" title="Debe contener exactamente 10 números"/></td>
+                    <td><label for="ctelefono">Teléfono:</label></td>
+                    <td><input type="text" id="ctelefono" name="ctelefono" required minlength="10" maxlength="10" pattern="[0-9]{10}" title="Debe contener exactamente 10 números"/></td>
                 </tr>
                 <tr>
-                    <td>Usuario:</td>
-                    <td><input type="text" name="cusuario" required minlength="4" title="Debe tener al menos 4 caracteres"/></td>
+                    <td><label for="cusuario">Usuario:</label></td>
+                    <td><input type="text" id="cusuario" name="cusuario" required minlength="4" title="Debe tener al menos 4 caracteres"/></td>
                 </tr>
                 <tr>
-                  <td>Clave:</td>
+                  <td><label for="cclave">Clave:</label></td>
                   <td>
                     <input 
                       type="password" 
+                      id="cclave"
                       name="cclave" 
                       required
                       minlength="8"
@@ -54,9 +55,9 @@
                   </td>
                 </tr>
                 <tr>
-                    <td>Perfil:</td>
+                    <td><label for="cidperfil">Perfil:</label></td>
                     <td>
-                        <select name="cidperfil" required>
+                        <select id="cidperfil" name="cidperfil" required>
                             <option value="">Seleccione un perfil</option>
                             <option value="1">Administrador</option>
                             <option value="2">Docente</option>

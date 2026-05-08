@@ -29,9 +29,9 @@
             <input type="hidden" name="accion" value="agregar"/>
             <table border="1">
                 <tr>
-                    <td>Perfil:</td>
+                    <td><label for="cid_perfil">Perfil:</label></td>
                     <td>
-                        <select name="cid_perfil" required>
+                        <select id="cid_perfil" name="cid_perfil" required>
                             <option value="">-- Seleccione --</option>
                             <% for (Perfil p : listaPerfiles) { %>
                             <option value="<%=p.getId_perfil()%>"><%=p.getPerfil()%></option>
@@ -40,9 +40,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Actividad (menú):</td>
+                    <td><label for="cid_actividad">Actividad (menú):</label></td>
                     <td>
-                        <select name="cid_actividad" required>
+                        <select id="cid_actividad" name="cid_actividad" required>
                             <option value="">-- Seleccione --</option>
                             <% for (Actividades a : listaActs) { %>
                             <option value="<%=a.getId_actividad()%>"><%=a.getNom_actividad()%></option>

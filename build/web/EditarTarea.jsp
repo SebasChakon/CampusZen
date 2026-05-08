@@ -47,24 +47,24 @@
         <input type="hidden" name="cid_tarea" value="<%=t.getId_tarea()%>"/>
         <table border="1">
             <tr>
-                <td>Nombre:</td>
-                <td><input type="text" name="cnombre" value="<%=t.getNombre()%>" required/></td>
+                <td><label for="cnombre">Nombre:</label></td>
+                <td><input type="text" id="cnombre" name="cnombre" value="<%=t.getNombre()%>" required/></td>
             </tr>
             <tr>
-                <td>Descripción:</td>
-                <td><input type="text" name="cdescripcion" value="<%=t.getDescripcion() != null ? t.getDescripcion() : ""%>"/></td>
+                <td><label for="cdescripcion">Descripción:</label></td>
+                <td><input type="text" id="cdescripcion" name="cdescripcion" value="<%=t.getDescripcion() != null ? t.getDescripcion() : ""%>"/></td>
             </tr>
             <tr>
-                <td>Fecha Límite:</td>
+                <td><label for="cfecha_limite">Fecha Límite:</label></td>
                 <td>
-                    <input type="datetime-local" name="cfecha_limite" required
+                    <input type="datetime-local" id="cfecha_limite" name="cfecha_limite" required
                         value="<%=t.getFecha_limite() != null ? t.getFecha_limite().toString().replace(" ","T").substring(0,16) : ""%>"/>
                 </td>
             </tr>
             <tr>
-                <td>Prioridad:</td>
+                <td><label for="cprioridad">Prioridad:</label></td>
                 <td>
-                    <select name="cprioridad">
+                    <select id="cprioridad" name="cprioridad">
                         <option value="alta"  <%="alta".equals(t.getPrioridad())  ? "selected":""%>>Alta</option>
                         <option value="media" <%="media".equals(t.getPrioridad()) ? "selected":""%>>Media</option>
                         <option value="baja"  <%="baja".equals(t.getPrioridad())  ? "selected":""%>>Baja</option>
@@ -72,9 +72,9 @@
                 </td>
             </tr>
             <tr>
-                <td>Estado:</td>
+                <td><label for="cestado">Estado:</label></td>
                 <td>
-                    <select name="cestado">
+                    <select id="cestado" name="cestado">
                         <option value="pendiente"   <%="pendiente".equals(t.getEstado())   ? "selected":""%>>Pendiente</option>
                         <option value="en progreso" <%="en progreso".equals(t.getEstado()) ? "selected":""%>>En Progreso</option>
                         <option value="entregada"   <%="entregada".equals(t.getEstado())   ? "selected":""%>>Entregada</option>
@@ -84,9 +84,9 @@
                 </td>
             </tr>
             <tr>
-                <td>Actividad:</td>
+                <td><label for="cid_actividad">Actividad:</label></td>
                 <td>
-                    <select name="cid_actividad" required>
+                    <select id="cid_actividad" name="cid_actividad" required>
                         <option value="">-- Seleccione una actividad --</option>
                         <% for (String[] a : actividades) { %>
                         <option value="<%=a[0]%>"
@@ -98,9 +98,9 @@
                 </td>
             </tr>
             <tr>
-                <td>Usuario Asignado:</td>
+                <td><label for="cid_usuario_asignado">Usuario Asignado:</label></td>
                 <td>
-                    <select name="cid_usuario_asignado" required>
+                    <select id="cid_usuario_asignado" name="cid_usuario_asignado" required>
                         <option value="">-- Seleccione un usuario --</option>
                         <% for (String[] u : usuarios) { %>
                         <option value="<%=u[0]%>"
@@ -112,8 +112,8 @@
                 </td>
             </tr>
             <tr>
-                <td>Observaciones:</td>
-                <td><input type="text" name="cobservaciones"
+                <td><label for="cobservaciones">Observaciones:</label></td>
+                <td><input type="text" id="cobservaciones" name="cobservaciones"
                     value="<%=t.getObservaciones() != null ? t.getObservaciones() : ""%>"/></td>
             </tr>
             <tr>

@@ -21,8 +21,8 @@
         <input type="hidden" name="cid_perfil" value="<%=p.getId_perfil()%>"/>
         <table border="1">
             <tr>
-                <td>Perfil:</td>
-                <td><input type="text" name="cperfil" value="<%=p.getPerfil()%>" required/></td>
+                <td><label for="cperfil">Perfil:</label></td>
+                <td><input type="text" id="cperfil" name="cperfil" value="<%=p.getPerfil()%>" required/></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="Actualizar"/></td>

@@ -77,21 +77,21 @@
             <input type="hidden" name="accion" value="agregar"/>
             <table border="1">
                 <tr>
-                    <td>Nombre:</td>
-                    <td><input type="text" name="cnombre" required/></td>
+                    <td><label for="cnombre">Nombre:</label></td>
+                    <td><input type="text" id="cnombre" name="cnombre" required/></td>
                 </tr>
                 <tr>
-                    <td>Descripción:</td>
-                    <td><input type="text" name="cdescripcion"/></td>
+                    <td><label for="cdescripcion">Descripción:</label></td>
+                    <td><input type="text" id="cdescripcion" name="cdescripcion"/></td>
                 </tr>
                 <tr>
-                    <td>Fecha Límite:</td>
-                    <td><input type="datetime-local" name="cfecha_limite" required/></td>
+                    <td><label for="cfecha_limite">Fecha Límite:</label></td>
+                    <td><input type="datetime-local" id="cfecha_limite" name="cfecha_limite" required/></td>
                 </tr>
                 <tr>
-                    <td>Prioridad:</td>
+                    <td><label for="cprioridad">Prioridad:</label></td>
                     <td>
-                        <select name="cprioridad" required>
+                        <select id="cprioridad" name="cprioridad" required>
                             <option value="alta">Alta</option>
                             <option value="media" selected>Media</option>
                             <option value="baja">Baja</option>
@@ -99,9 +99,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Estado:</td>
+                    <td><label for="cestado">Estado:</label></td>
                     <td>
-                        <select name="cestado" required>
+                        <select id="cestado" name="cestado" required>
                             <option value="pendiente" selected>Pendiente</option>
                             <option value="en progreso">En Progreso</option>
                             <option value="entregada">Entregada</option>
@@ -111,9 +111,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Actividad:</td>
+                    <td><label for="cid_actividad">Actividad:</label></td>
                     <td>
-                        <select name="cid_actividad" required>
+                        <select id="cid_actividad" name="cid_actividad" required>
                             <option value="">-- Seleccione una actividad --</option>
                             <% for (String[] a : actividades) { %>
                             <option value="<%=a[0]%>"><%=a[1]%></option>
@@ -122,9 +122,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Estudiante Asignado:</td>
+                    <td><label for="cid_usuario_asignado">Estudiante Asignado:</label></td>
                     <td>
-                        <select name="cid_usuario_asignado" required>
+                        <select id="cid_usuario_asignado" name="cid_usuario_asignado" required>
                             <option value="">-- Seleccione un estudiante --</option>
                             <% for (String[] e : estudiantes) { %>
                             <option value="<%=e[0]%>"><%=e[1]%></option>
@@ -133,8 +133,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Observaciones:</td>
-                    <td><input type="text" name="cobservaciones"/></td>
+                    <td><label for="cobservaciones">Observaciones:</label></td>
+                    <td><input type="text" id="cobservaciones" name="cobservaciones"/></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Agregar"/></td>

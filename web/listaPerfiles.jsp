@@ -16,8 +16,8 @@
         <input type="hidden" name="accion" value="agregar"/>
         <table border="1">
             <tr>
-                <td>Nombre Perfil:</td>
-                <td><input type="text" name="cperfil" required/></td>
+                <td><label for="cperfil">Nombre Perfil:</label></td>
+                <td><input type="text" id="cperfil" name="cperfil" required/></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="Agregar"/></td>

@@ -40,21 +40,21 @@
         <input type="hidden" name="cid_actividad" value="<%=act.getId_actividad()%>"/>
         <table border="1">
             <tr>
-                <td>Nombre:</td>
-                <td><input type="text" name="cnombre" value="<%=act.getNombre()%>" required/></td>
+                <td><label for="cnombre">Nombre:</label></td>
+                <td><input type="text" id="cnombre" name="cnombre" value="<%=act.getNombre()%>" required/></td>
             </tr>
             <tr>
-                <td>DescripciÃ³n:</td>
-                <td><input type="text" name="cdescripcion" value="<%=act.getDescripcion() != null ? act.getDescripcion() : ""%>"/></td>
+                <td><label for="cdescripcion">Descripción:</label></td>
+                <td><input type="text" id="cdescripcion" name="cdescripcion" value="<%=act.getDescripcion() != null ? act.getDescripcion() : ""%>"/></td>
             </tr>
             <tr>
-                <td>Fecha LÃ­mite:</td>
-                <td><input type="datetime-local" name="cfecha_limite" value="<%=act.getFecha_limite()%>" required/></td>
+                <td><label for="cfecha_limite">Fecha Límite:</label></td>
+                <td><input type="datetime-local" id="cfecha_limite" name="cfecha_limite" value="<%=act.getFecha_limite()%>" required/></td>
             </tr>
             <tr>
-                <td>Asignatura:</td>
+                <td><label for="cid_asignatura">Asignatura:</label></td>
                 <td>
-                    <select name="cid_asignatura" required>
+                    <select id="cid_asignatura" name="cid_asignatura" required>
                         <% for (String[] as : asignaturas) { %>
                         <option value="<%=as[0]%>" <%= as[0].equals(String.valueOf(act.getId_asignatura())) ? "selected" : "" %>>
                             <%=as[1]%>

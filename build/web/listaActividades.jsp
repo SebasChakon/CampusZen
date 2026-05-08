@@ -16,12 +16,12 @@
         <input type="hidden" name="accion" value="agregar"/>
         <table border="1">
             <tr>
-                <td>Nombre Actividad:</td>
-                <td><input type="text" name="cnom_actividad" required/></td>
+                <td><label for="cnom_actividad">Nombre Actividad:</label></td>
+                <td><input type="text" id="cnom_actividad" name="cnom_actividad" required/></td>
             </tr>
             <tr>
-                <td>Enlace:</td>
-                <td><input type="text" name="cenlace" required/></td>
+                <td><label for="cenlace">Enlace:</label></td>
+                <td><input type="text" id="cenlace" name="cenlace" required/></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="Agregar"/></td>

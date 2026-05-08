@@ -15,6 +15,64 @@
             <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/config/Conexion.java</file>
             <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/EditarTarea.jsp</file>
             <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/cpanel.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CtrolActividad.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CtrolValidar.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CtrolTareas.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/listaTareas.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/notificaciones.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/calendario.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/EditarActividad.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/EditarActividad_Academica.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/EditarAsignatura.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/EditarGesActividad.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/EditarHorario.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/EditarPerfil.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/front.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/index.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/listaActividad.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/login.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/listaActividades.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/listaAsignaturas.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/listaGesActividad.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/listaHorarios.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/listaPerfiles.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/mensaje.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/regUsuario.jsp</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/web/styles.css</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/Interfaces/CRUD.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/Interfaces/actividadCRUD.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/Interfaces/actividadesCRUD.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/Interfaces/asignaturaCRUD.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/Interfaces/gesActividadCRUD.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/Interfaces/notificacionCRUD.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/Interfaces/tareasCRUD.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CerrarSesion.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CtrolActividades.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CtrolAsignatura.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CtrolGesActividad.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CtrolHorario.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CtrolNotificacion.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/CtrolPerfil.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/controlador/EliminarUsuario.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/Actividad.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/ActividadDAO.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/Actividades.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/ActividadesDAO.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/Asignatura.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/AsignaturaDAO.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/BD.sql</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/Horario.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/HorarioDAO.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/LoginDAO.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/Notificacion.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/NotificacionDAO.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/Perfil.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/PerfilDAO.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/Tarea.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/TareaDAO.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/modelo/Usuario.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/Interfaces/horarioCRUD.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Documentos/NetBeansProjects/CampusZen/src/java/Interfaces/perfilCRUD.java</file>
         </group>
     </open-files>
 </project-private>

@@ -59,9 +59,9 @@
             <input type="hidden" name="accion" value="agregar"/>
             <table border="1">
                 <tr>
-                    <td>Asignatura:</td>
+                    <td><label for="cid_asignatura">Asignatura:</label></td>
                     <td>
-                        <select name="cid_asignatura" required>
+                        <select id="cid_asignatura" name="cid_asignatura" required>
                             <option value="">-- Seleccione --</option>
                             <% for (String[] a : asignaturas) { %>
                             <option value="<%=a[0]%>"><%=a[1]%></option>
@@ -70,9 +70,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Docente:</td>
+                    <td><label for="cid_docente">Docente:</label></td>
                     <td>
-                        <select name="cid_docente" required>
+                        <select id="cid_docente" name="cid_docente" required>
                             <option value="">-- Seleccione --</option>
                             <% for (String[] d : docentes) { %>
                             <option value="<%=d[0]%>"><%=d[1]%></option>
@@ -81,9 +81,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Día:</td>
+                    <td><label for="cdia_semana">Día:</label></td>
                     <td>
-                        <select name="cdia_semana" required>
+                        <select id="cdia_semana" name="cdia_semana" required>
                             <option value="Lunes">Lunes</option>
                             <option value="Martes">Martes</option>
                             <option value="Miércoles">Miércoles</option>
@@ -94,16 +94,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Hora Inicio:</td>
-                    <td><input type="time" name="chora_inicio" required/></td>
+                    <td><label for="chora_inicio">Hora Inicio:</label></td>
+                    <td><input type="time" id="chora_inicio" name="chora_inicio" required/></td>
                 </tr>
                 <tr>
-                    <td>Hora Fin:</td>
-                    <td><input type="time" name="chora_fin" required/></td>
+                    <td><label for="chora_fin">Hora Fin:</label></td>
+                    <td><input type="time" id="chora_fin" name="chora_fin" required/></td>
                 </tr>
                 <tr>
-                    <td>Salón:</td>
-                    <td><input type="text" name="csalon" required/></td>
+                    <td><label for="csalon">Salón:</label></td>
+                    <td><input type="text" id="csalon" name="csalon" required/></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Agregar"/></td>

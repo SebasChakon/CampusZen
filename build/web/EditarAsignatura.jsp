@@ -16,9 +16,9 @@
         <input type="hidden" name="accion" value="editar"/>
         <input type="hidden" name="cid_asignatura" value="<%=a.getId_asignatura()%>"/>
         <table border="1">
-            <tr><td>Nombre:</td><td><input type="text" name="cnombre" value="<%=a.getNombre()%>" required/></td></tr>
-            <tr><td>Descripción:</td><td><input type="text" name="cdescripcion" value="<%=a.getDescripcion()%>"/></td></tr>
-            <tr><td>Créditos:</td><td><input type="number" name="ccreditos" value="<%=a.getCreditos()%>" min="1" max="10"/></td></tr>
+            <tr><td><label for="cnombre">Nombre:</label></td><td><input type="text" id="cnombre" name="cnombre" value="<%=a.getNombre()%>" required/></td></tr>
+            <tr><td><label for="cdescripcion">Descripción:</label></td><td><input type="text" id="cdescripcion" name="cdescripcion" value="<%=a.getDescripcion()%>"/></td></tr>
+            <tr><td><label for="ccreditos">Créditos:</label></td><td><input type="number" id="ccreditos" name="ccreditos" value="<%=a.getCreditos()%>" min="1" max="10"/></td></tr>
             <tr><td colspan="2"><input type="submit" value="Actualizar"/></td></tr>
         </table>
     </form>

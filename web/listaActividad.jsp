@@ -52,21 +52,21 @@
             <input type="hidden" name="accion" value="agregar"/>
             <table border="1">
                 <tr>
-                    <td>Nombre:</td>
-                    <td><input type="text" name="cnombre" required/></td>
+                    <td><label for="cnombre">Nombre:</label></td>
+                    <td><input type="text" id="cnombre" name="cnombre" required/></td>
                 </tr>
                 <tr>
-                    <td>Descripción:</td>
-                    <td><input type="text" name="cdescripcion"/></td>
+                    <td><label for="cdescripcion">Descripción:</label></td>
+                    <td><input type="text" id="cdescripcion" name="cdescripcion"/></td>
                 </tr>
                 <tr>
-                    <td>Fecha Límite:</td>
-                    <td><input type="datetime-local" name="cfecha_limite" required/></td>
+                    <td><label for="cfecha_limite">Fecha Límite:</label></td>
+                    <td><input type="datetime-local" id="cfecha_limite" name="cfecha_limite" required/></td>
                 </tr>
                 <tr>
-                    <td>Asignatura:</td>
+                    <td><label for="cid_asignatura">Asignatura:</label></td>
                     <td>
-                        <select name="cid_asignatura" required>
+                        <select id="cid_asignatura" name="cid_asignatura" required>
                             <option value="">-- Seleccione una asignatura --</option>
                             <% for (String[] as : asignaturas) { %>
                             <option value="<%=as[0]%>"><%=as[1]%></option>

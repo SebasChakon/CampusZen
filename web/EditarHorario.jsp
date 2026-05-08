@@ -49,9 +49,9 @@
         <input type="hidden" name="cid_horario" value="<%=h.getId_horario()%>"/>
         <table border="1">
             <tr>
-                <td>Asignatura:</td>
+                <td><label for="cid_asignatura">Asignatura:</label></td>
                 <td>
-                    <select name="cid_asignatura" required>
+                    <select id="cid_asignatura" name="cid_asignatura" required>
                         <% for (String[] a : asignaturas) { %>
                         <option value="<%=a[0]%>"
                             <%=a[0].equals(String.valueOf(h.getId_asignatura()))?"selected":""%>>
@@ -62,9 +62,9 @@
                 </td>
             </tr>
             <tr>
-                <td>Docente:</td>
+                <td><label for="cid_docente">Docente:</label></td>
                 <td>
-                    <select name="cid_docente" required>
+                    <select id="cid_docente" name="cid_docente" required>
                         <% for (String[] d : docentes) { %>
                         <option value="<%=d[0]%>"
                             <%=d[0].equals(String.valueOf(h.getId_profesor()))?"selected":""%>>
@@ -75,9 +75,9 @@
                 </td>
             </tr>
             <tr>
-                <td>Día:</td>
+                <td><label for="cdia_semana">Día:</label></td>
                 <td>
-                    <select name="cdia_semana">
+                    <select id="cdia_semana" name="cdia_semana">
                         <% String[] dias = {"Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"};
                            for (String dia : dias) { %>
                         <option value="<%=dia%>" <%=dia.equals(h.getDia_semana())?"selected":""%>><%=dia%></option>
@@ -86,16 +86,16 @@
                 </td>
             </tr>
             <tr>
-                <td>Hora Inicio:</td>
-                <td><input type="time" name="chora_inicio" value="<%=h.getHora_inicio()%>" required/></td>
+                <td><label for="chora_inicio">Hora Inicio:</label></td>
+                <td><input type="time" id="chora_inicio" name="chora_inicio" value="<%=h.getHora_inicio()%>" required/></td>
             </tr>
             <tr>
-                <td>Hora Fin:</td>
-                <td><input type="time" name="chora_fin" value="<%=h.getHora_fin()%>" required/></td>
+                <td><label for="chora_fin">Hora Fin:</label></td>
+                <td><input type="time" id="chora_fin" name="chora_fin" value="<%=h.getHora_fin()%>" required/></td>
             </tr>
             <tr>
-                <td>Salón:</td>
-                <td><input type="text" name="csalon" value="<%=h.getSalon()%>" required/></td>
+                <td><label for="csalon">Salón:</label></td>
+                <td><input type="text" id="csalon" name="csalon" value="<%=h.getSalon()%>" required/></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="Actualizar"/></td>
