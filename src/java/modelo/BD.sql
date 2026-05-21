@@ -119,7 +119,7 @@ INSERT INTO actividades (nom_actividad, enlace) VALUES
 ('Tareas',                'listaTareas.jsp'),
 ('Actividades Academicas','listaActividad.jsp'),
 ('Horarios',              'listaHorarios.jsp'),
-('Asignatuas',            'listaAsignaturas.jsp'),       
+('Asignaturas',            'listaAsignaturas.jsp'),       
 ('Calendario',            'calendario.jsp'),        
 ('Notificaciones',        'notificaciones.jsp');  
 

@@ -22,7 +22,7 @@
         rsA.close(); psA.close();
 
         PreparedStatement psU = con.prepareStatement(
-            "SELECT identificacion, nombre, apellido FROM Usuario WHERE id_estado = 1 ORDER BY nombre");
+            "SELECT identificacion, nombre, apellido FROM Usuario WHERE id_estado = 1 AND id_perfil = 3 ORDER BY nombre");
         ResultSet rsU = psU.executeQuery();
         while (rsU.next())
             usuarios.add(new String[]{rsU.getString("identificacion"),
@@ -37,6 +37,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar Tarea</title>
+    <%
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //Borrar directivas de memoria cache y anular algoritmos predeterminados para almacenar cache
+        response.setHeader("Pragma", "no-cache");//Directivas compatibles con memorias cache
+        response.setDateHeader("Expires", 0);//Proporciona fecha y hora para decir el tiempo de respuesta caduco
+    %>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="img/icono.png">
 </head>
@@ -98,7 +103,7 @@
                 </td>
             </tr>
             <tr>
-                <td><label for="cid_usuario_asignado">Usuario Asignado:</label></td>
+                <td><label for="cid_usuario_asignado">Estudiante Asignado:</label></td>
                 <td>
                     <select id="cid_usuario_asignado" name="cid_usuario_asignado" required>
                         <option value="">-- Seleccione un usuario --</option>

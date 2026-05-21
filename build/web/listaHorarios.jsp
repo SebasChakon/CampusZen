@@ -47,6 +47,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Gestión de Horarios</title>
+    <%
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //Borrar directivas de memoria cache y anular algoritmos predeterminados para almacenar cache
+        response.setHeader("Pragma", "no-cache");//Directivas compatibles con memorias cache
+        response.setDateHeader("Expires", 0);//Proporciona fecha y hora para decir el tiempo de respuesta caduco
+    %>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="img/icono.png">
 </head>

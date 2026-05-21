@@ -12,7 +12,12 @@
     boolean puedeGestionar = (idPerfil == 1 || idPerfil == 2);
 
     ActividadDAO dao = new ActividadDAO();
-    List<Actividad> lista = dao.listar();
+    List<Actividad> lista;
+    if (idPerfil == 3) {
+        lista = dao.listarPorUsuario(Integer.parseInt(identificacion));
+    } else {
+        lista = dao.listar();
+    }
 
     List<String[]> asignaturas = new ArrayList<>();
     Map<String,String> mapaAsignaturas = new HashMap<>();
@@ -41,6 +46,11 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="img/icono.png">
     <title>Gestión de Actividades Académicas</title>
+    <%
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //Borrar directivas de memoria cache y anular algoritmos predeterminados para almacenar cache
+        response.setHeader("Pragma", "no-cache");//Directivas compatibles con memorias cache
+        response.setDateHeader("Expires", 0);//Proporciona fecha y hora para decir el tiempo de respuesta caduco
+    %>
 </head>
 <body>
     <h2>Gestión de Actividades Académicas</h2>
